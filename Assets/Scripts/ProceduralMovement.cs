@@ -7,6 +7,7 @@ public class ProceduralMovement : MonoBehaviour
     //PUBLIC VARIABLES
     public GameObject feetTarget;
     public bool isActive;
+    public RaycastHit hitTarget;
     //PRIVATE VARIBALES
     private Vector3 kneeInitialPosition;
     private GameObject creature;
@@ -38,6 +39,7 @@ public class ProceduralMovement : MonoBehaviour
         bool kneeHit = Physics.Raycast(this.transform.position, this.transform.up, out kneeHitTarget, 10);
         bool feetHit = Physics.Raycast(feetTarget.transform.position, feetTarget.transform.right, out feetHitTarget, 1);
         Debug.DrawRay(this.transform.position, this.transform.up * kneeHitTarget.distance, Color.yellow);
+        hitTarget = kneeHitTarget;
 
         if (isActive)
         {
