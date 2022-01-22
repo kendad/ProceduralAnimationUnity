@@ -6,7 +6,8 @@ public class IKScript : MonoBehaviour
 {
     //PUBLIC VARIABLES
     public GameObject target;
-    public bool isStatic=false;
+    public bool isStatic;
+    public GameObject empty;
 
     //PRIVATE VARIABELS
     private string baseBoneName = "Bone";
@@ -51,7 +52,8 @@ public class IKScript : MonoBehaviour
         {
             bonePositions.Add(bonesList[i].transform.position);
         }
-        backward();
+        //backward();
+        isStatic = true;
     }
 
 
@@ -71,6 +73,7 @@ public class IKScript : MonoBehaviour
             backward();
             forward();
         }
+        bonePositions[bonePositions.Count - 1] = empty.transform.position;
     }
 
     void forward()
